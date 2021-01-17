@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
+
+DOTFILES_DIR=~/.config/dotfiles.git
 
 function install_pkg {
         name="$1"
@@ -34,4 +36,7 @@ function install_if_missing {
 install_if_missing ansible
 install_if_missing git
 
-git clone https://github.com/tracemeyers/dotfiles ~/.config/dotfiles.git
+git clone https://github.com/tracemeyers/dotfiles "$DOTFILES_DIR"
+
+cd "$DOTFILES_DIR"
+ansible-playbook setup-bashrc.yaml
