@@ -1,0 +1,29 @@
+- name: Configure neovim
+  hosts:
+    - localhost
+  gather_facts: yes
+  become: no
+  tasks: 
+    - include_vars: vars.yaml
+    - name: Ensure "{{ nvim_config_path }}" exists
+      file:
+        path: "{{ nvim_config_path }}"
+        state: directory
+        recurse: no
+        mode: 0750
+    - name: Ensure "{{ nvim_autoload_path }}" exists
+      file:
+        path: "{{ nvim_autoload_path }}"
+        state: directory
+        recurse: no
+        mode: 0750
+    - name: Download vim-plug
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: "{{ nvim_autoload_path }}/plug.vim"
+    - name: Link vim scripts
+      ansible.builtin.file:
+        src: "{{ item }}"
+        dest: "{{ nvim_config_path }}/{{ item | basename }}"
+        state: link
+      with_fileglob: "{{ dotfiles_path }}/neovim/*.vim"

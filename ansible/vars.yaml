@@ -1,3 +1,6 @@
 bin_dir: "{{ ansible_env.HOME }}/bin"
+dotfiles_path: "{{ ansible_env.HOME }}/.config/dotfiles.git"
 nvim_path: "{{ bin_dir }}/nvim"
+nvim_autoload_path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload"
+nvim_config_path: "{{ ansible_env.HOME }}/.config/nvim"
 bash_config_dir: "{{ ansible_env.HOME }}/.config/bash"

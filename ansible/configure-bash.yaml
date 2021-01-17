@@ -16,3 +16,9 @@
         state: present
         validate: grep -qv "^source {{ bash_config_dir }}" %s
         line: "source {{ bash_config_dir }}/*"
+    - name: Link bash config scripts
+      ansible.builtin.file:
+        src: "{{ item }}"
+        dest: "{{ bash_config_dir }}/{{ item | basename }}"
+        state: link
+      with_fileglob: "{{ dotfiles_path }}/bash/*.bashrc"
