@@ -1,0 +1,5 @@
+[alias]
+	st = status
+	lg = log --graph
+	l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C("#999999")%aD%C(reset)C(bold "#999999")(%ar)%C(reset)%C(bold red)%d%C(reset)%n''          %C(bold black)%s%C(reset) %C(dim "#999999")- %an%C(reset)' --all
+	outgoing = log origin.. --oneline

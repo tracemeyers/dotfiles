@@ -1,0 +1,25 @@
+- name: Setup git
+  hosts: localhost
+  gather_facts: yes
+  tasks: 
+    - include_vars: vars.yaml
+    - name: Ensure "{{ git_config_path }}" includes core
+      ansible.builtin.lineinfile:
+        dest: "{{ git_config_path }}"
+        create: yes
+        state: present
+        validate: grep -qv "^[ \t]*path = {{ dotfiles_path }}/git/core.gitconfig" %s
+        line: "{{ item }}"
+      with_items:
+        - "[include]"
+        - "\tpath = {{ dotfiles_path }}/git/core.gitconfig"
+    - name: Ensure "{{ git_config_path }}" includes alias
+      ansible.builtin.lineinfile:
+        dest: "{{ git_config_path }}"
+        create: yes
+        state: present
+        validate: grep -qv "^[ \t]*path = {{ dotfiles_path }}/git/alias.gitconfig" %s
+        line: "{{ item }}"
+      with_items:
+        - "[include]"
+        - "\tpath = {{ dotfiles_path }}/git/alias.gitconfig"
