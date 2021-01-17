@@ -33,10 +33,17 @@ function install_if_missing {
         fi
 }
 
+function clone_dotfiles_if_missing {
+	if [ ! -d "$DOTFILES_DIR" ]; then
+		git clone https://github.com/tracemeyers/dotfiles "$DOTFILES_DIR"
+	fi
+}
+
 install_if_missing ansible
 install_if_missing git
 
-git clone https://github.com/tracemeyers/dotfiles "$DOTFILES_DIR"
+clone_dotfiles_if_missing
 
-cd "$DOTFILES_DIR"
-ansible-playbook setup-bashrc.yaml
+cd "$DOTFILES_DIR"/ansible
+ansible-playbook install-*.yaml
+ansible-playbook configure-*.yaml

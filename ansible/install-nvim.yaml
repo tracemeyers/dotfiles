@@ -1,0 +1,14 @@
+- name: Install neovim
+  hosts: localhost
+  gather_facts: yes
+  become: no
+  tasks: 
+    - include_vars: vars.yaml
+    - name: Download nightly nvim.appimage
+      get_url:
+        url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+        dest: "{{ nvim_path }}"
+    - name: Make nvim.appimage executable
+      file:
+        path: "{{ nvim_path }}"
+        mode: 0775

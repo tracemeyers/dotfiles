@@ -1,0 +1,19 @@
+- name: Setup ~/bin
+  hosts: localhost
+  gather_facts: yes
+  become: no
+  tasks: 
+    - include_vars: vars.yaml
+    - name: Ensure ~/bin exists
+      file:
+        path: "{{ bin_dir }}"
+        state: directory
+        recurse: no
+        mode: 0750
+    - name: Ensure .bashrc puts {{ bin_dir }} in PATH
+      ansible.builtin.lineinfile:
+        dest: "{{ ansible_env.HOME }}/.bashrc"
+        create: yes
+        state: present
+        validate: grep -qv "^export PATH=.*{{ bin_dir }}" %s
+        line: "export PATH={{ bin_dir }}:$PATH"
