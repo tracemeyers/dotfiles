@@ -45,5 +45,5 @@ install_if_missing git
 clone_dotfiles_if_missing
 
 cd "$DOTFILES_DIR"/ansible
-ansible-playbook install-*.yaml
+ansible-playbook --ask-become-pass install-*.yaml
 ansible-playbook configure-*.yaml

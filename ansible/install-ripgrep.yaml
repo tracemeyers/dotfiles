@@ -1,0 +1,10 @@
+- name: Install ripgrep (rg)
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+  tasks: 
+    - name: Install ripgrep (rg)
+      package:
+        name:
+          - ripgrep
+        state: present
