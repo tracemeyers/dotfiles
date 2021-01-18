@@ -21,9 +21,9 @@
       get_url:
         url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         dest: "{{ nvim_autoload_path }}/plug.vim"
-    - name: Link vim scripts
+    - name: Link vim configs
       ansible.builtin.file:
         src: "{{ item }}"
         dest: "{{ nvim_config_path }}/{{ item | basename }}"
         state: link
-      with_fileglob: "{{ dotfiles_path }}/neovim/*.vim"
+      with_fileglob: "{{ dotfiles_path }}/neovim/*"

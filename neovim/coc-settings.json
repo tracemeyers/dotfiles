@@ -1,0 +1,21 @@
+{
+  "suggest.echodocSupport": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "Markdown"
+  ],
+  "go.goplsArgs": [
+    "-remote",
+    "auto",
+    "-logfile",
+    "/tmp/gopls.log",
+    "-vv",
+    "-rpc.trace"
+  ],
+  "go.goplsPath": "/home/cat/dev/go/bin/gopls"
+}

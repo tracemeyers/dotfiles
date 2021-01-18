@@ -1,6 +1,0 @@
-- name: Config neovim with plugins
-  hosts: localhost
-  gather_facts: yes
-  become: no
-  vars:
-    vim_dir: "{{ ansible_env.HOME }}/.config/nvim"
