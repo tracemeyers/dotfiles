@@ -1,0 +1,19 @@
+- name: Create various symlinks
+  hosts: localhost
+  gather_facts: yes
+  vars:
+    targets:
+      - picom/picom.conf
+  tasks:
+    - include_vars: vars.yaml
+    - name: Create various directories
+      ansible.builtin.file:
+        dest: "{{ ansible_env.HOME }}/.config/{{ item | dirname }}"
+        state: directory
+      loop: "{{ targets }}"
+    - name: Create various symlinks
+      ansible.builtin.file:
+        src: "{{ dotfiles_path }}/{{ item }}"
+        dest: "{{ ansible_env.HOME }}/.config/{{ item }}"
+        state: link
+      loop: "{{ targets }}"
