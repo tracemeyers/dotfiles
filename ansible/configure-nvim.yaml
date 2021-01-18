@@ -27,3 +27,13 @@
         dest: "{{ nvim_config_path }}/{{ item | basename }}"
         state: link
       with_fileglob: "{{ dotfiles_path }}/neovim/*"
+    - name: Ensure backup/undo dirs exists
+      file:
+        path: "{{ nvim_data_path }}/{{ item }}"
+        state: directory
+        recurse: no
+        mode: 0750
+      loop:
+        - backups
+        - swaps
+        - undo

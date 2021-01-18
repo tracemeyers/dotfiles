@@ -23,6 +23,7 @@ cnoreabbrev W w
 set backup
 set backupdir=~/.local/share/nvim/backups,.
 set directory=~/.local/share/nvim/swaps,.
+set undofile
 set undodir=~/.local/share/nvim/undo,.
 autocmd BufWritePre * let &backupext = substitute(expand('%:p:h'), '/', '%', 'g')
 
