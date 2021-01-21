@@ -55,8 +55,10 @@ set scrolloff=4
 set laststatus=2
 
 " Always draw the signcolumn.
-" TM: DISABLED to see if I actually use this anymore
-" set signcolumn=yes
+set signcolumn=number
+
+" Give more space for displaying messages.
+set cmdheight=2
 
 " Match and highlight trailing whitespaces at end of line
 highlight BadWhitespace ctermbg=red

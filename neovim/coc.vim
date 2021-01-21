@@ -1,3 +1,8 @@
+let g:coc_global_extensions = [ 'coc-css', 'coc-go', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver' ]
+
+" Allow <CR> to work just like ctrl-y (e.g. auto import)
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 function SetCOCShortcuts()
     nmap <silent> <leader>lca <Plug>(coc-codeaction)
     nmap <silent> <leader>ld <Plug>(coc-definition)
