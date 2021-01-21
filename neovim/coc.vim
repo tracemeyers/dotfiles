@@ -24,7 +24,7 @@ function SetCOCShortcuts()
     nmap <silent> <leader>t :CocCommand go.test.toggle<cr>
 
     inoremap <silent><expr> <c-space> coc#refresh()
-    nnoremap <c-c> :CocCommand
+    nmap <silent> <leader><leader>c :CocCommand
 
 endfunction()
 
