@@ -1,6 +1,7 @@
 {
   "suggest.echodocSupport": true,
   "coc.preferences.formatOnSaveFiletypes": [
+    "dart",
     "go",
     "javascript",
     "javascriptreact",
