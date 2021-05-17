@@ -32,6 +32,7 @@ augroup COC
   autocmd!
   autocmd FileType go call SetCOCShortcuts()
   autocmd FileType javascript call SetCOCShortcuts()
+  autocmd FileType dart call SetCOCShortcuts()
 augroup END
 
 
