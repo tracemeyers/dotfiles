@@ -1,4 +1,4 @@
-let g:coc_global_extensions = [ 'coc-css', 'coc-go', 'coc-html', 'coc-json', 'coc-prettier', 'coc-python', 'coc-tsserver' ]
+let g:coc_global_extensions = [ 'coc-css', 'coc-go', 'coc-html', 'coc-json', 'coc-prettier', 'coc-python', 'coc-sh', 'coc-tsserver' ]
 
 " Allow <CR> to work just like ctrl-y (e.g. auto import)
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -30,10 +30,11 @@ endfunction()
 
 augroup COC
   autocmd!
+  autocmd FileType dart call SetCOCShortcuts()
   autocmd FileType go call SetCOCShortcuts()
   autocmd FileType javascript call SetCOCShortcuts()
-  autocmd FileType dart call SetCOCShortcuts()
   autocmd FileType python call SetCOCShortcuts()
+  autocmd FileType sh call SetCOCShortcuts()
 augroup END
 
 
