@@ -18,5 +18,7 @@
     "-vv",
     "-rpc.trace"
   ],
-  "go.goplsPath": "/home/cat/dev/go/bin/gopls"
+  "go.goplsPath": "/home/cat/dev/go/bin/gopls",
+
+  "python.jediEnabled": false
 }

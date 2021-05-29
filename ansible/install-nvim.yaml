@@ -17,3 +17,9 @@
         name:
           - xclip
         state: present
+    - name: Install ctags for coc-python
+      become: yes
+      package:
+        name:
+          - ctags
+        state: present
