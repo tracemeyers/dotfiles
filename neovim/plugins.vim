@@ -13,3 +13,8 @@ Plug 'Shougo/echodoc.vim'
 Plug 'APZelos/blamer.nvim'
 
 call plug#end()
+
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
