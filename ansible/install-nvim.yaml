@@ -17,6 +17,14 @@
         name:
           - xclip
         state: present
+    - name: Install node for coc (debian)
+      when: ansible_facts['os_family'] == 'Debian'
+      become: yes
+      package:
+        name:
+          - nodejs
+          - npm
+        state: present
     - name: Install ctags for coc-python (arch)
       when: ansible_facts['os_family'] == 'ArchLinux'
       become: yes
