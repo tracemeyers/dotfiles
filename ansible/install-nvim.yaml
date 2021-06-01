@@ -17,9 +17,17 @@
         name:
           - xclip
         state: present
-    - name: Install ctags for coc-python
+    - name: Install ctags for coc-python (arch)
+      when: ansible_facts['os_family'] == 'ArchLinux'
       become: yes
       package:
         name:
           - ctags
+        state: present
+    - name: Install ctags for coc-python (debian)
+      when: ansible_facts['os_family'] == 'Debian'
+      become: yes
+      package:
+        name:
+          - exuberant-ctags
         state: present
