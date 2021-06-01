@@ -1,5 +1,9 @@
 # dotfiles
 
+## Prereqs
+
+	sudo apt install curl ansible
+
 ## Bootstrap
 
 First, download the bootstrap script
