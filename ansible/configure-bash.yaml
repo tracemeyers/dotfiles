@@ -14,8 +14,8 @@
         dest: "{{ ansible_env.HOME }}/.bashrc"
         create: yes
         state: present
-        validate: grep -qv "^source {{ bash_config_dir }}" %s
-        line: "source {{ bash_config_dir }}/*"
+        validate: grep -qv "^for i in {{ bash_config_dir }}" %s
+        line: "for i in {{ bash_config_dir }}/*; do source $i; done"
     - name: Link bash config scripts
       ansible.builtin.file:
         src: "{{ item }}"

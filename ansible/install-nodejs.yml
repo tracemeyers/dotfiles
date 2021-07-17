@@ -1,0 +1,16 @@
+- name: Install nodejs
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Install nodejs
+      package:
+        name:
+          - nodejs
+        state: present
+    - name: Install npm
+      package:
+        name:
+          - npm
+        state: present
+

@@ -1,0 +1,10 @@
+- name: Install dev tools
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Install go
+      package:
+        name:
+          - go
+        state: present

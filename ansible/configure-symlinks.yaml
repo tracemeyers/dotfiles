@@ -4,6 +4,7 @@
   vars:
     targets:
       - picom/picom.conf
+      - i3/config
   tasks:
     - include_vars: vars.yaml
     - name: Create various directories
